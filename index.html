@@ -12,7 +12,7 @@
             // Semak adakah pengguna sedang menggunakan telefon Android?
             if (userAgent.indexOf("android") > -1) {
                 // Khas untuk Android: Buka App FishingSpot. Jika tiada, auto ke Play Store App.
-                window.location.href = "intent://spot" + queryString + "#Intent;scheme=fishingspot;package=com.pedomanmemancing;end;";
+                window.location.href = "intent://spot" + queryString + "#Intent;scheme=fishingspot;package=com.legadigital.fishingspot;end;";
             } else {
                 // Untuk komputer Windows/Mac atau iPhone: Terus buka laman web Google Play Store
                 window.location.href = "https://play.google.com/store/apps/details?id=com.pedomanmemancing";
