@@ -6,21 +6,25 @@
     <title>Lokasi FishingSpot</title>
     <script>
         window.onload = function() {
-            // Ambil data lat, lng, dan name dari link
             var queryString = window.location.search;
-            
-            // Kod ajaib Android: Buka app FishingSpot, kalau tiada, buka Play Store
-            // NOTA: Pastikan 'com.legadigital.tide_app' adalah nama pakej App anda yang sebenar
-            window.location.href = "intent://spot" + queryString + "#Intent;scheme=fishingspot;package=com.legadigital.tide_app;end;";
+            var userAgent = navigator.userAgent.toLowerCase();
+
+            // Semak adakah pengguna sedang menggunakan telefon Android?
+            if (userAgent.indexOf("android") > -1) {
+                // Khas untuk Android: Buka App FishingSpot. Jika tiada, auto ke Play Store App.
+                window.location.href = "intent://spot" + queryString + "#Intent;scheme=fishingspot;package=com.legadigital.tide_app;end;";
+            } else {
+                // Untuk komputer Windows/Mac atau iPhone: Terus buka laman web Google Play Store
+                window.location.href = "https://play.google.com/store/apps/details?id=com.legadigital.tide_app";
+            }
         };
     </script>
 </head>
 <body style="background-color: #f4f6f8; font-family: sans-serif; text-align: center; padding-top: 20vh;">
     <h1 style="color: #007bff;">🎣 FishingSpot</h1>
-    <h3>Sedang membuka lokasi memancing...</h3>
+    <h3>Sedang memproses lokasi memancing...</h3>
     <p style="color: gray; padding: 20px;">
-        Sila tunggu sebentar. Jika anda belum memuat turun aplikasi, <br>
-        anda akan dibawa terus ke Google Play Store.
+        Jika anda tidak dihalakan secara automatik, sila muat turun aplikasi FishingSpot di Google Play Store.
     </p>
 </body>
 </html>
